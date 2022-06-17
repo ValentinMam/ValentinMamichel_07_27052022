@@ -17,9 +17,9 @@ Bonjour,
 
 Je suis ravie de t’avoir dans l’équipe pour cette nouvelle étape du projet.
 
-Comme tu le sais, les sites offrant des recettes de cuisine sont nombreux et l’équipe a pensé que l’un des éléments qui peuvent faire la différence sur notre site est la fluidité du moteur de recherche. L’équipe Back-end n’étant pas encore formée, nous disposons uniquement d’un fichier JavaScript contenant un tableau JSON de 50 recettes. (https://github.com/OpenClassrooms-Student-Center/P11-front-end-search-engine)
+Comme tu le sais, les sites offrant des recettes de cuisine sont nombreux et l’équipe a pensé que l’un des éléments qui peuvent faire la différence sur notre site est la fluidité du moteur de recherche. L’équipe Back-end n’étant pas encore formée, nous disposons uniquement d’un fichier JavaScript contenant un tableau JSON de 50 recettes.
 
-Ta première mission sera donc d’implémenter la fonctionnalité de recherche. Tu trouveras ici la description du cas d’utilisation de recherche (https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P6+Algorithms/Cas+d%E2%80%99utilisation+%2303+Filtrer+les+recettes+dans+l%E2%80%99interface+utilisateur.pdf). C’est ce document qui te servira de référence pour tout le développement de cette fonctionnalité. En plus de ça, voici la maquette de la page sur Figma (https://www.figma.com/file/xqeE1ZKlHUWi2Efo8r73NK/UI-Design-Les-Petits-Plats-FR?node-id=0%3A1), assure-toi de bien respecter le design à la lettre.
+Ta première mission sera donc d’implémenter la fonctionnalité de recherche. Tu trouveras ici la description du cas d’utilisation de recherche. C’est ce document qui te servira de référence pour tout le développement de cette fonctionnalité. En plus de ça, voici la maquette de la page sur Figma, assure-toi de bien respecter le design à la lettre.
 
 Ce que l’on veut avant tout c’est quelque chose de performant car nos utilisateurs veulent une recherche rapide, presque instantanée ! Ton travail sera transmis au Back-end dans un second temps pour être adapté par leurs soins. C’est pourquoi il faudra que tu leur transmettes un document expliquant bien ton travail. Je te laisse voir comment procéder en détail directement avec Jean-Baptiste.
 
@@ -27,12 +27,16 @@ Sandra
 
 ```
 
+- Tableau de recettes : https://github.com/OpenClassrooms-Student-Center/P11-front-end-search-engine
+- Cas d'utilisation de recherche : https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P6+Algorithms/Cas+d%E2%80%99utilisation+%2303+Filtrer+les+recettes+dans+l%E2%80%99interface+utilisateur.pdf
+- Maquettes : https://www.figma.com/file/xqeE1ZKlHUWi2Efo8r73NK/UI-Design-Les-Petits-Plats-FR?node-id=0%3A1
+
 En fin de matinée, vous recevez une notification Slack de Jean-Baptiste, votre Lead Developer :
 
 ```
 - JB : Salut ! Comme tu as pu le voir, la recherche est une fonctionnalité très importante pour l’équipe et on compte sur toi pour la développer d’une manière optimale.
 
-Dans notre équipe, pour tout algorithme important qu’on développe, on a pour habitude d’en faire deux implémentations différentes pour pouvoir comparer leurs performances et choisir la meilleure. Il faudra donc que tu fasses de même ! Pour ça il faudra que tu crées un document de comparaison qu’on appelle “fiche d’investigation de fonctionnalité”. Nous avons récemment fait ça pour la fonctionnalité "connexion / inscription" dont voici le résultat(https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P6+Algorithms/Fiche+d%E2%80%99investigation+fonctionnalite%CC%81.pdf). Donc réutilise directement le même modèle de document.
+Dans notre équipe, pour tout algorithme important qu’on développe, on a pour habitude d’en faire deux implémentations différentes pour pouvoir comparer leurs performances et choisir la meilleure. Il faudra donc que tu fasses de même ! Pour ça il faudra que tu crées un document de comparaison qu’on appelle “fiche d’investigation de fonctionnalité”. Nous avons récemment fait ça pour la fonctionnalité "connexion / inscription" dont voici le résultat. Donc réutilise directement le même modèle de document.
 
 - Vous : Très bien merci. Du coup, tu me conseilles de procéder comment ?
 
@@ -44,7 +48,7 @@ D’abord, planifie les 2 versions de la fonctionnalité que tu veux tester. Pui
 
 Ces deux implémentations doivent se focaliser uniquement sur le champ de recherche principal.
 
-N’oublie pas de faire un schéma, ou "algorigramme", pour chacune des propositions (les deux implémentations peuvent avoir le même algorigramme) afin qu’on comprenne bien l'enchaînement des étapes de chacun des algorithmes, cela sera surtout utile à l’équipe Back-end. Tu peux te baser sur les schémas présents dans la fiche d’investigation de la fonctionnalité de Connexion/Inscription mais utilise le formatage que tu veux. Moi j'utilise draw.io (https://app.diagrams.net/) pour faire mes schémas, c'est très pratique et gratuit.
+N’oublie pas de faire un schéma, ou "algorigramme", pour chacune des propositions (les deux implémentations peuvent avoir le même algorigramme) afin qu’on comprenne bien l'enchaînement des étapes de chacun des algorithmes, cela sera surtout utile à l’équipe Back-end. Tu peux te baser sur les schémas présents dans la fiche d’investigation de la fonctionnalité de Connexion/Inscription mais utilise le formatage que tu veux. Moi j'utilise draw.io pour faire mes schémas, c'est très pratique et gratuit.
 
 - Vous : Ok et ensuite je les implémente ?
 
@@ -52,11 +56,15 @@ N’oublie pas de faire un schéma, ou "algorigramme", pour chacune des proposit
 
 - Vous : Et comment je choisis la meilleure version du code du coup ?
 
-- JB : Ça c’est ta troisième et dernière étape. Pour choisir le meilleur algorithme, il faut que tu testes leur performance. Pour ça, tu peux utiliser l’outil de comparaison de performance que tu veux, personnellement j’utilise Jsben.ch (https://jsben.ch/) pour ce genre d’analyse. Il te donnera le nombre d’opérations par seconde réalisées par chaque script et te permet donc de voir en un clin d’œil quel script est le plus performant. Tu peux tester uniquement la recherche principale (pas besoin d’utiliser les filtres). Ajoute ensuite les résultats à la fiche d’investigation de fonctionnalité que tu auras rédigée. N’oublie pas de terminer le document par la recommandation d’algorithme à garder suite à ton analyse et tes tests.
+- JB : Ça c’est ta troisième et dernière étape. Pour choisir le meilleur algorithme, il faut que tu testes leur performance. Pour ça, tu peux utiliser l’outil de comparaison de performance que tu veux, personnellement j’utilise Jsben.ch pour ce genre d’analyse. Il te donnera le nombre d’opérations par seconde réalisées par chaque script et te permet donc de voir en un clin d’œil quel script est le plus performant. Tu peux tester uniquement la recherche principale (pas besoin d’utiliser les filtres). Ajoute ensuite les résultats à la fiche d’investigation de fonctionnalité que tu auras rédigée. N’oublie pas de terminer le document par la recommandation d’algorithme à garder suite à ton analyse et tes tests.
 
 Vous : Parfait, merci pour tes conseils JB. Je me lance !
 
 ```
+
+- Fiche d'investigation :https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P6+Algorithms/Fiche+d%E2%80%99investigation+fonctionnalite%CC%81.pdf
+- Diagrammes : https://app.diagrams.net/
+- Jsben : https://jsben.ch/
 
 Ça y est, vous avez toutes les informations nécessaires pour démarrer votre travail. C’est parti !
 
