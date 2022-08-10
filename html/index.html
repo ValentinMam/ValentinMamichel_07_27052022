@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <title>Les petits plats</title>
+  </head>
+  <!-- START OF HTML BODY -->
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div id="logo">
+        <a href="index.html">
+          <!-- logo image -->
+          <img src="/logo/Logo.png" alt="logo du site" /><br />
+          <!-- logo text -->
+          <img src="/logo/Lespetitsplats.png" alt="les petits plats" />
+        </a>
+      </div>
+    </header>
+    <!-- MAIN -->
+    <main>
+      <!-- ASIDE -->
+      <aside>
+        <!-- search bar -->
+        <div class="search-bar">
+          <input
+            type="search"
+            class="form-control"
+            id="main-input"
+            placeholder="Rechercher un ingrédient, un appareil, un stensile ou une recette"
+            data-search
+          />
+          <!-- search icon -->
+          <label class="form-label"><i class="fa fa-search"></i></label>
+        </div>
+        <!-- search tag -->
+        <div id="search-tags">
+          <!-- tags generated with JS  -->
+        </div>
+        <!-- filters boxes  -->
+        <div id="search-filters">
+          <!-- ingredients box -->
+          <div class="filterbox box-primary" data-filter="inactive">
+            <label
+              class="filter-label"
+              id="label-ingredients"
+              data-label="active"
+              >Ingredients</label
+            >
+            <input
+              type="text"
+              class="filter-input"
+              id="input-ingredients"
+              placeholder="Rechercher un ingredient"
+              data-input="inactive"
+            />
+            <button
+              class="filter-button"
+              id="button-ingredients"
+              data-button="off"
+            >
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul
+              class="filter-list"
+              id="ingredients-list"
+              data-list="inactive"
+            ></ul>
+          </div>
+          <!-- appliances box -->
+          <div class="filterbox box-secondary" data-filter="inactive">
+            <label
+              class="filter-label"
+              id="label-appliances"
+              data-label="active"
+              >Appareil</label
+            >
+            <input
+              type="text"
+              class="filter-input"
+              id="input-appliances"
+              placeholder="Rechercher un appareil"
+              data-input="inactive"
+            />
+            <button
+              class="filter-button"
+              id="button-appliances"
+              data-button="off"
+            >
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul
+              class="filter-list"
+              id="appliances-list"
+              data-list="inactive"
+            ></ul>
+          </div>
+          <!-- ustensils box -->
+          <div class="filterbox box-tertiary" data-filter="inactive">
+            <label class="filter-label" id="label-ustensils" data-label="active"
+              >Ustensiles</label
+            >
+            <input
+              type="text"
+              class="filter-input"
+              id="input-ustensils"
+              placeholder="Rechercher un ustensile"
+              data-input="inactive"
+            />
+            <button
+              class="filter-button"
+              id="button-ustensils"
+              data-button="off"
+            >
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul
+              class="filter-list"
+              id="ustensils-list"
+              data-list="inactive"
+            ></ul>
+          </div>
+        </div>
+      </aside>
+      <!-- SECTION -->
+      <section>
+        <!-- recipes cards generated with JS -->
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer></footer>
+  </body>
+  <!-- END OF HTML BODY -->
+  <!-- SCRIPTS  -->
+  <script src="/js/index.js" type="module"></script>
+</html>
