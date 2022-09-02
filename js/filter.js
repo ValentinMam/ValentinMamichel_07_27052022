@@ -7,10 +7,10 @@
 export function filterRecByValue(recipeList, value) {
   return recipeList.filter(
     (recipe) =>
-      recipe.name.toLowerCase().match(value) ||
-      recipe.description.toLowerCase().match(value) ||
+      recipe.name.toLowerCase().startsWith(value.toLowerCase) ||
+      recipe.description.toLowerCase().includes(value.toLowerCase) ||
       recipe.ingredients.some((ingredientDetail) =>
-        ingredientDetail.ingredient.toLowerCase().match(value)
+        ingredientDetail.ingredient.toLowerCase().includes(value.toLowerCase())
       )
   );
 }
