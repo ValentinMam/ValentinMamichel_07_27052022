@@ -7,13 +7,20 @@
 export function filterRecByValue(recipeList, value) {
   let recipeResult = [];
   for (let i = 0; i < recipeList.length; i++) {
-    let recipeByName = recipeList[i].name.toLowerCase().includes(value);
-    let recipeByDesc = recipeList[i].description.toLowerCase().includes(value);
-    let recipeByIng = recipeList[i].ingredients.some((ingredientDetail) =>
-      ingredientDetail.ingredient.toLowerCase().includes(value)
-    );
-
-    if (recipeByName || recipeByDesc || recipeByIng) {
+    const { name, description, ingredients } = recipeList[i];
+    const includesInName = name.toLowerCase().includes(value.toLowerCase());
+    const includesInDescription = description
+      .toLowerCase()
+      .includes(value.toLowerCase());
+    let includesInIngredients = false;
+    for (let j = 0; j < ingredients.length; j++) {
+      const { ingredient } = ingredients[j];
+      if (ingredient.toLowerCase().includes(value.toLowerCase())) {
+        includesInIngredients = true;
+        break;
+      }
+    }
+    if (includesInName || includesInDescription || includesInIngredients) {
       recipeResult.push(recipeList[i]);
     }
   }
