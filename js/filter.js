@@ -2,22 +2,17 @@
 
 /* research recipes by name, description & ingredient */
 
-// ALGORITHME #2
+// ALGORITHME #1
 
 export function filterRecByValue(recipeList, value) {
-  let recipeResult = [];
-  for (let i = 0; i < recipeList.length; i++) {
-    let recipeByName = recipeList[i].name.toLowerCase().includes(value);
-    let recipeByDesc = recipeList[i].description.toLowerCase().includes(value);
-    let recipeByIng = recipeList[i].ingredients.some((ingredientDetail) =>
-      ingredientDetail.ingredient.toLowerCase().includes(value)
-    );
-
-    if (recipeByName || recipeByDesc || recipeByIng) {
-      recipeResult.push(recipeList[i]);
-    }
-  }
-  return recipeResult;
+  return recipeList.filter(
+    (recipe) =>
+      recipe.name.toLowerCase().match(value) ||
+      recipe.description.toLowerCase().match(value) ||
+      recipe.ingredients.some((ingredientDetail) =>
+        ingredientDetail.ingredient.toLowerCase().match(value)
+      )
+  );
 }
 
 /******************   FILTER RECIPES BY TAGS LIST   ******************/
