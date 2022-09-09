@@ -76,18 +76,26 @@ export function renderRecipe(name, ingredients, time, description) {
 // ========== FUNCTION DISPLAY RECIPES LIST ==========
 
 export function renderRecipeList(recipeList) {
-  // Clear the section
-  document.querySelector("section").innerHTML = "";
-  // Loop through the recipe list
-  recipeList.forEach((recipe) => {
-    // Render the recipe
-    renderRecipe(
-      recipe.name,
-      recipe.ingredients,
-      recipe.time,
-      recipe.description
-    );
-  });
+  if (recipeList.length === 0) {
+    const noRecipe = document.createElement("div");
+    noRecipe.className = "no-recipe";
+    noRecipe.textContent =
+      "Nous sommes navrés aucune recette ne correspond à votre recherche, essayez avec un autre mot ou avec les filtres.";
+    document.querySelector("section").append(noRecipe);
+  } else {
+    // Clear the section
+    document.querySelector("section").innerHTML = "";
+    // Loop through the recipe list
+    recipeList.forEach((recipe) => {
+      // Render the recipe
+      renderRecipe(
+        recipe.name,
+        recipe.ingredients,
+        recipe.time,
+        recipe.description
+      );
+    });
+  }
 }
 
 // ========== FUNCTION DISPLAY INGREDIENTS LIST ==========
