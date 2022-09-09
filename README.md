@@ -72,3 +72,9 @@ Vous : Parfait, merci pour tes conseils JB. Je me lance !
 
 - Une fiche d’investigation de fonctionnalité sur l’algorithme de recherche (format PDF). Vous y intégrerez le choix de l'algorithme définitif en comparaison à l’autre algorithme de recherche développé.
 - Un fichier au format TXT contenant le lien vers votre code sur GitHub comprenant les deux branches avec les deux solutions différentes pour la recherche.
+
+## Resultats
+
+- 3 banches : main ; algo#1 ; algo#2
+
+- voir fichier jsbench.js pour tests des algorithmes
