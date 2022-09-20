@@ -226,15 +226,27 @@ ul#ustensils-list,
 /***** SECTION *****/
 
 section {
-  display: flex;
-  flex-flow: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
   justify-content: space-between;
+}
+
+@media (max-width: 1250px) {
+  section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  section {
+    grid-template-columns: 1fr;
+  }
 }
 
 article {
   display: flex;
   flex-flow: wrap;
-  width: 31%;
   height: auto;
   margin-bottom: 1.5625rem;
 }
