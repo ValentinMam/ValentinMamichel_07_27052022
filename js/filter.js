@@ -5,14 +5,22 @@
 // ALGORITHME #1
 
 export function filterRecByValue(recipeList, value) {
-  return recipeList.filter(
-    (recipe) =>
-      recipe.name.toLowerCase().startsWith(value.toLowerCase) ||
-      recipe.description.toLowerCase().includes(value.toLowerCase) ||
-      recipe.ingredients.some((ingredientDetail) =>
-        ingredientDetail.ingredient.toLowerCase().includes(value.toLowerCase())
-      )
-  );
+  // if value is empty, return all recipes (no filter)
+  // if value is superior to 2 characters, return recipes that match
+  if (value.length > 2) {
+    return recipeList.filter(
+      (recipe) =>
+        recipe.name.toLowerCase().includes(value.toLowerCase) ||
+        recipe.description.toLowerCase().includes(value.toLowerCase) ||
+        recipe.ingredients.some((ingredientDetail) =>
+          ingredientDetail.ingredient
+            .toLowerCase()
+            .includes(value.toLowerCase())
+        )
+    );
+  } else {
+    return recipeList;
+  }
 }
 
 /******************   FILTER RECIPES BY TAGS LIST   ******************/
